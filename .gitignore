@@ -1,5 +1,6 @@
 .idea
 .rvmrc
+.ruby-version
 
 ## MAC OS
 .DS_Store
