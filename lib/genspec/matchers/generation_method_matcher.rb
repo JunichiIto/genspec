@@ -109,7 +109,7 @@ class GenSpec::Matchers::GenerationMethodMatcher < GenSpec::Matchers::Base
     # GENERATION_CLASSES. This is the list of methods that will be converted
     # into matchers, which can be used like so:
     #
-    #   subject.should create_file(. . .)
+    #   expect(subject).to create_file(. . .)
     #
     # See also GENERATION_CLASSES
     #
@@ -127,10 +127,10 @@ class GenSpec::Matchers::GenerationMethodMatcher < GenSpec::Matchers::Base
     # called from GenSpec::Matchers#call_action
     # 
     # example:
-    #   subject.should call_action(:create_file, ...)
+    #   expect(subject).to call_action(:create_file, ...)
     #
     # equivalent to:
-    #   subject.should GenSpec::Matchers::GenerationMethodMatcher.for_method(:create_file, ...)
+    #   expect(subject).to GenSpec::Matchers::GenerationMethodMatcher.for_method(:create_file, ...)
     #
     def for_method(which, *args, &block)
       if generation_methods.include?(which.to_s)

@@ -9,15 +9,15 @@ module GenSpec
     # :migration_template, :route_resources
     #
     # Examples:
-    #   subject.should generate(:file, ...)
-    #   subject.should generate("vendor/plugins/will_paginate/init.rb")
+    #   expect(subject).to generate(:file, ...)
+    #   expect(subject).to generate("vendor/plugins/will_paginate/init.rb")
     #
     def generate(kind = nil, *args, &block)
       if kind.kind_of?(Symbol)
-        # subject.should generate(:file, ...)
+        # expect(subject).to generate(:file, ...)
         call_action(kind, *args, &block)
       else
-        # subject.should generate("vendor/plugins/will_paginate/init.rb")
+        # expect(subject).to generate("vendor/plugins/will_paginate/init.rb")
         GenSpec::Matchers::ResultMatcher.new(kind, &block)
       end
     end
@@ -27,7 +27,7 @@ module GenSpec
     # completes its run.
     #
     # Example:
-    #   subject.should delete("path/to/file")
+    #   expect(subject).to delete("path/to/file")
     #
     def delete(filename)
       within_source_root do
@@ -39,7 +39,7 @@ module GenSpec
     end
     
     # ex:
-    #   subject.should call_action(:create_file, ...)
+    #   expect(subject).to call_action(:create_file, ...)
     #
     def call_action(kind, *args, &block)
       GenSpec::Matchers::GenerationMethodMatcher.for_method(kind, *args, &block)
@@ -56,9 +56,9 @@ module GenSpec
         instance_methods = base.instance_methods.collect { |m| m.to_s }
         
         # ex:
-        #   subject.should create_file(...)
+        #   expect(subject).to create_file(...)
         # equivalent to:
-        #   subject.should call_action(:create_file, ...)
+        #   expect(subject).to call_action(:create_file, ...)
         
         GenSpec::Matchers::GenerationMethodMatcher.generation_methods.each do |method_name|
           # don't overwrite existing methods. since the user expects this to fire FIRST,
