@@ -1,10 +1,12 @@
 require 'spec_helper'
+# FIXME Without this, test fails when ENV['USE_RAILS'] = '1'
+require_relative '../../spec/support/generators/test_rails3/test_rails3_generator'
 
 describe TestRails3 do
   within_source_root do
     FileUtils.touch "Gemfile"
   end
-  
+
   it "should modify Gemfile" do
     out = ""
     expect(subject).to generate {

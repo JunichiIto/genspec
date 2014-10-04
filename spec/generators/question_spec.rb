@@ -1,4 +1,6 @@
 require 'spec_helper'
+# FIXME Without this, test fails when ENV['USE_RAILS'] = '1'
+require_relative '../../spec/support/generators/question/question_generator'
 
 describe Question do
   context "without input" do
