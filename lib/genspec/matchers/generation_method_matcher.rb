@@ -42,7 +42,7 @@ class GenSpec::Matchers::GenerationMethodMatcher < GenSpec::Matchers::Base
     "expected to generate a call to #{method_name.inspect}#{with_args} but #{what}"
   end
   
-  def negative_failure_message
+  def failure_message_when_negated
     "expected not to generate a call to #{method_name.inspect}#{with_args} but it happened anyway"
   end
   

@@ -29,7 +29,7 @@ module GenSpec
 end
 
 RSpec.configure do |config|
-  config.include GenSpec::GeneratorExampleGroup, :example_group => { :file_path => /spec[\/]generators/ }
+  config.include GenSpec::GeneratorExampleGroup, :file_path => /spec[\/]generators/
   
   # Kick off the action wrappers.
   #

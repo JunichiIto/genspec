@@ -35,7 +35,7 @@ module GenSpec
         FileUtils.touch   filename
       end
       
-      generate { File.should_not exist(filename) }
+      generate { expect(File).to_not exist(filename) }
     end
     
     # ex:
