@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe :question do
+describe Question do
   context "without input" do
     it "should raise an error" do
       expect { expect(subject).to output("Are you a GOD?") }.to raise_error

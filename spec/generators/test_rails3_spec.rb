@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe :test_rails3 do
+describe TestRails3 do
   within_source_root do
     FileUtils.touch "Gemfile"
   end
